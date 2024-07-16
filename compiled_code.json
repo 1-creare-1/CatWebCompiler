@@ -1,11 +1,12 @@
 [
     {
         "class": "script",
+        "alias": "CompiledScript",
         "content": [
             {
                 "id": "0",
                 "text": [
-                    "When website loaded..."
+                    "Created with github.com/1-creare-1/CatWebCompiler"
                 ],
                 "actions": [
                     {
