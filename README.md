@@ -4,5 +4,5 @@ The game uses a block-based coding language. Luckly its possible to import code 
 Todo
 - [ ] Variables
 - [ ] Conditionals
-- [ ] Loops
+- [x] Loops
 - [ ] Functions (Cat web doesn't have functions, this will be a compiler time macro-like thing)
