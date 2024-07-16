@@ -1,5 +1,6 @@
 # My stuff
 /example_jsons
+/.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

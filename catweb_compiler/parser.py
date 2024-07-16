@@ -18,6 +18,8 @@ class Parser:
             return self.parse_let_statement()
         elif self.match('IF'):
             return self.parse_if_statement()
+        elif self.match('LOOP'):
+            return self.parse_loop()
         elif self.match('IDENT', 'LPAREN'):
             return self.parse_call()
         else:
@@ -34,6 +36,31 @@ class Parser:
         expr = self.parse_expression()
         self.consume('SEMICOLON')
         return ExpressionStatement(expr)
+    
+    def parse_loop(self):
+        self.consume('LOOP')
+
+        # Parse how many times the loop should loop. -1 is forever
+        times = -1
+        if self.look_ahead(0) == "LPAREN":
+            self.consume("LPAREN")
+            times = self.consume("NUMBER")
+            self.consume("RPAREN")
+        elif self.look_ahead(0) == "NUMBER":
+            times = self.consume("NUMBER")
+
+        # Consume the { at the start of the loop
+        self.consume('LBRACE')
+
+        # Parse all the statements within the loop's body
+        inner = []
+        while not self.match('RBRACE'):
+            inner.append(self.parse_statement())
+
+        # Consume the } at the end of the loop
+        self.consume('RBRACE')
+
+        return Loop(inner, times)
 
     def parse_if_statement(self):
         self.consume('IF')

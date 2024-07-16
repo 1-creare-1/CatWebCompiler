@@ -6,6 +6,7 @@ TOKEN_TYPES = [
     ('STRING',   r'"[^"]*"'),
     # ('STRING',   r'(?<=")[^"]*(?=")'),
     ('IF',       r"if"),
+    ('LOOP',     r"loop"),
     ('IDENT',    r'[a-zA-Z_]\w*'),
     ('EQUAL',    r'=='),
     ('ASSIGN',   r'='),

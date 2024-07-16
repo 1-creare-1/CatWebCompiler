@@ -14,53 +14,16 @@
                         "text": [
                             "",
                             {
-                                "value": "Program Start!",
+                                "value": "Code starting",
                                 "t": "string"
                             }
                         ]
                     },
                     {
-                        "id": 5,
+                        "id": "23",
                         "t": "0",
                         "text": [
-                            "",
-                            {
-                                "value": "1835895687",
-                                "t": "number"
-                            }
-                        ]
-                    },
-                    {
-                        "id": 8,
-                        "t": "0",
-                        "text": [
-                            "",
-                            {
-                                "value": "N",
-                                "t": "object"
-                            }
-                        ]
-                    },
-                    {
-                        "id": 3,
-                        "t": "0",
-                        "text": [
-                            "",
-                            {
-                                "value": "3",
-                                "t": "number"
-                            }
-                        ]
-                    },
-                    {
-                        "id": 9,
-                        "t": "0",
-                        "text": [
-                            "",
-                            {
-                                "value": "N",
-                                "t": "object"
-                            }
+                            ""
                         ]
                     },
                     {
@@ -69,20 +32,57 @@
                         "text": [
                             "",
                             {
-                                "value": "Delayed print!",
+                                "value": "inner",
                                 "t": "string"
                             }
                         ]
                     },
                     {
-                        "id": 2,
+                        "id": "22",
                         "t": "0",
                         "text": [
                             "",
                             {
-                                "value": "heres an error",
+                                "t": "number",
+                                "value": "2"
+                            },
+                            ""
+                        ]
+                    },
+                    {
+                        "id": 0,
+                        "t": "0",
+                        "text": [
+                            "",
+                            {
+                                "value": "hi",
                                 "t": "string"
                             }
+                        ]
+                    },
+                    {
+                        "id": "25",
+                        "t": "0",
+                        "text": [
+                            ""
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "t": "0",
+                        "text": [
+                            "",
+                            {
+                                "value": "1",
+                                "t": "number"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "25",
+                        "t": "0",
+                        "text": [
+                            ""
                         ]
                     }
                 ]

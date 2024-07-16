@@ -64,11 +64,37 @@ class IfStatement(Node):
         self.alternative = alternative
 
 class Loop(Node):
-    def __init__(self):
-        self._ =_
+    def __init__(self, inner, times):
+        self.inner = inner
+        self.times = times
 
     def compile(self):
-        ...
+        # 23 is repeat forever and 22 is repeat x times
+        if int(self.times) < 0:
+            start_json = {
+                "id": "23", 
+                "t": "0",
+                "text": [""]
+            }
+        else:
+            start_json = {
+                "id": "22", 
+                "t": "0",
+                "text": ["", {"t": "number", "value": self.times}, ""]
+            }
+
+        end_json = {
+            "id": "25", # 25 is end
+            "t": "0",
+            "text": [""]
+        }
+
+        all_json = [start_json]
+        for statement in self.inner:
+            all_json.append(statement.compile())
+        all_json.append(end_json)
+
+        return all_json
         
 class BinaryExpression(Node):
     def __init__(self, left, operator, right):
