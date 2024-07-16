@@ -36,10 +36,16 @@ class CallExpression(Node):
             compiled_args.append("")
             arg_value = value.value
 
+            type = block['types'][i]
+
+            if type == "object":
+                # arg_value = f"\\u{type}"
+                arg_value = chr(int(arg_value))
+
             new_arg = {
                 "value": arg_value,
-                "t": "?", # Type
-                "l": "?", # Arg name
+                "t": type, # Type
+                # "l": "?", # Arg name
             }
             print(new_arg)
             compiled_args.append(new_arg)

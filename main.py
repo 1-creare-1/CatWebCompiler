@@ -5,9 +5,9 @@ from catweb_compiler import compile
 code = '''
 log("Program Start!");
 play(1835895687);
-hide("[");
+hide(78);
 wait(3);
-show("[");
+show(78);
 log("Delayed print!");
 error("heres an error");
 '''
