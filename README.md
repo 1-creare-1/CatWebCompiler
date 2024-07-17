@@ -54,5 +54,6 @@ Variable support is still in progress however the basics work.
 ## Todo
 - [x] Variables
 - [ ] Conditionals
+- [ ] Code Triggers (Loaded, key press, etc)
 - [x] Loops
 - [ ] Functions (Cat web doesn't have functions, this will be a compiler time macro-like thing)
