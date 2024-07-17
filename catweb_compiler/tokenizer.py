@@ -26,7 +26,16 @@ TOKEN_TYPES = [
     ('OTHER',    r'.')
 ]
 
+def remove_comments(code):
+    single_line_comment = r'//.*?$'
+    multi_line_comment = r'/\*.*?\*/'
+    pattern = f'({single_line_comment})|({multi_line_comment})'
+
+    return re.sub(pattern, '', code, flags=re.DOTALL | re.MULTILINE)
+
 def tokenize(code):
+    # Remove comments
+    code = remove_comments(code)
     tokens = []
     pos = 0
     while pos < len(code):

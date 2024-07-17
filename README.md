@@ -47,6 +47,10 @@ Variable support is still in progress however the basics work.
 - `log("{x}");` Log variable `x` to console. Support for `log(x);` not implemented yet.
 - `log("The value of x is: {x}");` String works!
 
+### Comments
+- `//` for single line comments
+- `/* */` for multi line comments
+  
 ## Notes
 - There is a limit of 500 actions per second. `wait(seconds: number)` can be used to slow down your code to stay below this limit.
 - The developer of cat web has incorrectly utilized the roblox filter resulting in very harsh code tagging.

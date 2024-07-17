@@ -42,10 +42,14 @@ from catweb_compiler import compile
 
 # Example program for variables
 code = '''
+// Define two variables
 a = 5;
 b = 10;
+// Add A to B and assign to C
 c = a + b;
+// Divide C by 2 and assign to D
 d = c / 2;
+// Print outputs of C and D
 log("{c}");
 log("{d}");
 '''
