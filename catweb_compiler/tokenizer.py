@@ -10,7 +10,12 @@ TOKEN_TYPES = [
     ('IDENT',    r'[a-zA-Z_]\w*'),
     ('EQUAL',    r'=='),
     ('ASSIGN',   r'='),
+
     ('PLUS',     r'\+'),
+    ('MINUS',    r'-'),
+    ('MULTIPLY', r'\*'),
+    ('DIVIDE',   r'/'),
+
     ('LPAREN',   r'\('),
     ('RPAREN',   r'\)'),
     ('LBRACE',   r'\{'),

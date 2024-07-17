@@ -29,15 +29,25 @@ from catweb_compiler import compile
 # '''
 
 # Example program for loops
+# code = '''
+# log("Code starting");
+# loop {
+#     log("inner");
+#     loop(2) {
+#         log("hi");
+#     }
+#     wait(1);
+# }
+# '''
+
+# Example program for variables
 code = '''
-log("Code starting");
-loop {
-    log("inner");
-    loop(2) {
-        log("hi");
-    }
-    wait(1);
-}
+a = 5;
+b = 10;
+c = a + b;
+d = c / 2;
+log("{c}");
+log("{d}");
 '''
 
 # Compile the program

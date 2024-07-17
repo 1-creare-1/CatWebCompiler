@@ -4,24 +4,27 @@ The game uses a block-based coding language. Luckly its possible to import code 
 
 ## Basic Docs
 ### Global Functions
-`log(message: string);` Prints white text<br>
-`warn(message: string);` Prints orange text<br>
-`error(message: string);` Prints red text<br>
+#### Debuging
+- `log(message: string);` Prints white text
+- `warn(message: string);` Prints orange text
+- `error(message: string);` Prints red text
 
-`wait(seconds: number);` Waits `seconds` seconds<br>
+#### Control
+- `wait(seconds: number);` Waits `seconds` seconds
+- `redirect(url: string);` Redirects user to `url`
 
-`redirect(url: string);` Redirects user to `url`<br>
+#### Audio
+- `play(audio_id: number);` Plays audio with id `id`
+- `play_l(audio_id: number);` Plays audio with id `id` on loop
+- `volume(volume: number);` Sets global volume to `volume`
+- `stopall();` Stops all playing audio
+- `pauseall();` Pauses all playing audio
+- `resumeall();` Resumes any paused audio
 
-`play(audio_id: number);` Plays audio with id `id`<br>
-`play_l(audio_id: number);` Plays audio with id `id` on loop<br>
-`volume(volume: number);` Sets global volume to `volume`<br>
-`stopall();` Stops all playing audio<br>
-`pauseall();` Pauses all playing audio<br>
-`resumeall();` Resumes any paused audio<br>
-
-`hide(id: number);` Hides element with global id `id`<br>
-`show(id: number);` Shows element with global id `id`<br>
-`configure(property: string, id: number, value: any);` Sets property `property` to `value` on element with global id `id`<br>
+#### Display
+- `hide(id: number);` Hides element with global id `id`<
+- `show(id: number);` Shows element with global id `id`
+- `configure(property: string, id: number, value: any);` Sets property `property` to `value` on element with global id `id`
 
 ### Loops
 Loop forever
@@ -37,11 +40,19 @@ loop(n: number) {
 }
 ```
 
+### Variables
+Variable support is still in progress however the basics work.
+- `x = 10;` Create variable `x` with value `10`
+- `y = x + 2;` Create variable `y` with value as result of expression `x + 2` (Support for longer expressions not implemented yet)
+- `log("{x}");` Log variable `x` to console. Support for `log(x);` not implemented yet.
+- `log("The value of x is: {x}");` String works!
+
 ## Notes
 - There is a limit of 500 actions per second. `wait(seconds: number)` can be used to slow down your code to stay below this limit.
+- The developer of cat web has incorrectly utilized the roblox filter resulting in very harsh code tagging.
 
 ## Todo
-- [ ] Variables
+- [x] Variables
 - [ ] Conditionals
 - [x] Loops
 - [ ] Functions (Cat web doesn't have functions, this will be a compiler time macro-like thing)

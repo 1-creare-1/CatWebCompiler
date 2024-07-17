@@ -13,7 +13,65 @@ class LetStatement(Node):
         self.value = value
 
     def compile(self):
-        return "let"
+        def var_json(name, value):
+            return {
+                "id": 11, # 11 is set variable to any
+                "t": "0",
+                "text": [
+                    "",
+                    {
+                        "value": name,
+                        "t": "string",
+                    },
+                    "=",
+                    {
+                        "value": value,
+                        "t": "any",
+                    }
+                ]
+            }
+        
+        operators = {
+            '+': "12",
+            "-": "13",
+            "*": "14",
+            "/": "15",
+        }
+
+        if isinstance(self.value, Literal):
+            return var_json(self.name, self.value.value)
+        else: # BinaryExpression
+            if isinstance(self.value.left, Literal):
+                left = self.value.left.value
+            else: # Identifier
+                left = f"{{{self.value.left.value}}}"
+
+            if isinstance(self.value.right, Literal):
+                right = self.value.right.value
+            else: # Identifier
+                right = f"{{{self.value.right.value}}}"
+
+            return [
+                var_json(self.name, left),
+                {
+                    "id": operators[self.value.operator],
+                    "t": "0",
+                    "text": [
+                        "",
+                        {
+                            "value": self.name,
+                            "t": "string",
+                        },
+                        f"{self.value.operator}",
+                        {
+                            "value": right,
+                            "t": "any",
+                        }
+                    ]
+                },
+                
+            ]
+
 
 class ExpressionStatement(Node):
     def __init__(self, expression):
@@ -33,7 +91,11 @@ class CallExpression(Node):
 
         compiled_args = []
         for i, value in enumerate(self.args):
-            compiled_args.append("")
+            if i == 0:
+                pre = self.name
+            else:
+                pre = ","
+            compiled_args.append(pre)
             arg_value = value.value
 
             type = block['types'][i]
@@ -74,19 +136,19 @@ class Loop(Node):
             start_json = {
                 "id": "23", 
                 "t": "0",
-                "text": [""]
+                "text": ["loop"]
             }
         else:
             start_json = {
                 "id": "22", 
                 "t": "0",
-                "text": ["", {"t": "number", "value": self.times}, ""]
+                "text": ["loop (", {"t": "number", "value": self.times}, ")"]
             }
 
         end_json = {
             "id": "25", # 25 is end
             "t": "0",
-            "text": [""]
+            "text": ["end"]
         }
 
         all_json = [start_json]

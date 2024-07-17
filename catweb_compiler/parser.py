@@ -100,10 +100,18 @@ class Parser:
     
     def parse_expression(self):
         left = self.parse_primary()
-        if self.match('PLUS'):
-            operator = self.consume('PLUS')
-            right = self.parse_primary()
-            return BinaryExpression(left, operator, right)
+
+        operators = [
+            'PLUS',
+            'MINUS',
+            'MULTIPLY',
+            'DIVIDE',
+        ]
+        for operator_token in operators:
+            if self.match(operator_token):
+                operator = self.consume(operator_token)
+                right = self.parse_primary()
+                return BinaryExpression(left, operator, right)
         return left
 
     def parse_primary(self):
