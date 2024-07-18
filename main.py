@@ -1,4 +1,5 @@
 import json
+import os
 from catweb_compiler import compile
 
 # Example Program
@@ -58,5 +59,8 @@ log("{d}");
 compiled = compile(code)
 
 # Output to json file
-with open('compiled_code.json', 'w', encoding='utf-8') as f:
+out_dir = os.path.dirname(os.path.realpath(__file__))
+out_file = f'{out_dir}\compiled_code.json'
+with open(out_file, 'w', encoding='utf-8') as f:
     json.dump(compiled, f, ensure_ascii=False, indent=4)
+print(f"Saved compiled json to {out_file}")
